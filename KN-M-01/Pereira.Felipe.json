@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "6a16d799ad953b20ba04db5a"
+  },
+  "name": "Felipe Pereira",
+  "age": 17,
+  "height_cm": 185,
+  "gender": "male",
+  "address": "Bahnhofstrasse 10, 8001 Zürich",
+  "birthdate": {
+    "$date": "2008-09-20T00:00:00.000Z"
+  }
+}]

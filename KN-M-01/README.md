@@ -33,6 +33,13 @@ Der Parameter `authSource=admin` sagt MongoDB: "Hey, such den User in der admin-
 
 Wenn ich `authSource` auf was anderes setze (z.B. `test`), findet MongoDB die Login-Daten nicht und es gibt einen Authentication-Fehler.
 
+
+Screenshots: 
+
+![image](images/1.png)
+![image](images/2.png)
+![image](images/3.png)
+![image](images/4.png)
 ---
 
 ## Teil B: Erste Schritte im GUI (Compass)
@@ -49,13 +56,19 @@ Hab in Compass eine neue Datenbank erstellt mit:
 Hab dann ein erstes Dokument eingefügt:
 
 ```json
-{
-  "_id": { "$oid": "..." },
-  "name": "Hans Muster",
-  "adresse": "Musterstrasse 12, 8000 Zürich",
-  "groesse": 182,
-  "geburtsdatum": "1990-05-15"
-}
+[{
+  "_id": {
+    "$oid": "6a16d799ad953b20ba04db5a"
+  },
+  "name": "Felipe Pereira",
+  "age": 17,
+  "height_cm": 185,
+  "gender": "male",
+  "address": "Bahnhofstrasse 10, 8001 Zürich",
+  "birthdate": {
+    "$date": "2008-09-20T00:00:00.000Z"
+  }
+}]
 ```
 
 Die `_id` wird automatisch generiert, wenn man nichts angibt. Habs trotzdem mit einem Beispielwert drin gelassen.
@@ -77,6 +90,11 @@ db.collection.insertOne({
 Im JSON-Export sieht ein korrektes Datum dann so aus: `{ "$date": "1990-05-15T00:00:00.000Z" }`. Das ist MongoDB Extended JSON. Ohne dieses Format geht die Typinformation verloren.
 
 **Konsequenz:** Das gleiche Problem hat man auch mit anderen speziellen BSON-Typen wie ObjectId, NumberLong oder BinData. JSON kann diese Typen nicht abbilden, drum brauchts die Extended JSON Syntax.
+
+
+
+![image](images/6.png)
+![image](images/7.png)
 
 ---
 
@@ -103,6 +121,9 @@ sudo mongosh --authenticationDatabase "admin" -u "admin" -p
 
 In SQL-Datenbanken heissen die Dinger **Tables** und haben ein starres Schema (Spalten mit festen Datentypen). In MongoDB heissen sie **Collections** und sind flexibler – jedes Dokument kann anders aussehen. `show tables;` gibts nur als Alias, damit SQL-Leute sich leichter tun.
 
+![image](images/8.png)
+![image](images/9.png)
+
 ---
 
 ## Teil D: Rechte und Rollen
@@ -121,42 +142,7 @@ Resultat: `AuthenticationFailed`. Genau wie erwartet, der User existiert in `tes
 
 Hab zwei Benutzer mit built-in Rollen erstellt (beide ohne "any" im Namen wie verlangt):
 
-```javascript
-// Leser - nur lesen, Auth-DB = Themendatenbank
-use [Nachname];
-db.createUser({
-  user: "leser",
-  pwd: "LeserPasswort.2024",
-  roles: [
-    { role: "read", db: "[Nachname]" }
-  ]
-});
 
-// Schreiber - lesen + schreiben, Auth-DB = admin
-use admin;
-db.createUser({
-  user: "schreiber",
-  pwd: "SchreiberPasswort.2024",
-  roles: [
-    { role: "readWrite", db: "[Nachname]" }
-  ]
-});
-```
-
-### Benutzer 1 (leser)
-
-| Aktion    | Verbindung                                                             | Resultat      |
-| --------- | ---------------------------------------------------------------------- | ------------- |
-| Login     | `mongodb://leser:LeserPasswort.2024@<IP>:27017/?authSource=[Nachname]` | OK            |
-| Lesen     | `db.[Vorname].find()`                                                  | OK            |
-| Schreiben | `db.[Vorname].insertOne({...})`                                        | NotAuthorized |
-
-### Benutzer 2 (schreiber)
-
-| Aktion    | Verbindung                                                                | Resultat |
-| --------- | ------------------------------------------------------------------------- | -------- |
-| Login     | `mongodb://schreiber:SchreiberPasswort.2024@<IP>:27017/?authSource=admin` | OK       |
-| Lesen     | `db.[Vorname].find()`                                                     | OK       |
-| Schreiben | `db.[Vorname].insertOne({...})`                                           | OK       |
-
----
+![image](images/10.png)
+![image](images/11.png)
+![image](images/12.png)
