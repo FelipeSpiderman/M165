@@ -1,0 +1,41 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:00:00.000Z" agent="Mozilla/5.0" version="21.6.5">
+  <diagram id="logical" name="Logisches Modell MongoDB">
+    <mxGraphModel dx="1500" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Legende -->
+        <mxCell id="10" value="&lt;b&gt;Legende:&lt;/b&gt;&lt;hr&gt;&lt;font color='#6c8ebf'&gt;&#9632;&lt;/font&gt; Collection&lt;br&gt;&lt;font color='#d79b00'&gt;&#9632;&lt;/font&gt; Embedded Document&lt;br&gt;- - - &#x27A1; Referenz (ObjectId)" style="text;html=1;fontSize=11;whiteSpace=wrap;overflow=hidden;" vertex="1" parent="1">
+          <mxGeometry x="30" y="30" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- COLLECTION: spieler -->
+        <mxCell id="2" value="&lt;b&gt;spieler&lt;/b&gt;&lt;hr&gt;&lt;font color='#666666'&gt;_id: ObjectId (PK)&lt;/font&gt;&lt;br&gt;name: string&lt;br&gt;alter: int&lt;br&gt;position: string&lt;br&gt;rueckennummer: int&lt;br&gt;gehalt: float&lt;br&gt;geburtsdatum: date&lt;br&gt;&lt;br&gt;&lt;b&gt;mannschaften: [&lt;/b&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;mannschaftId: ObjectId (ref)&lt;br&gt;&amp;nbsp;&amp;nbsp;name: string&lt;br&gt;&lt;b&gt;]&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="140" width="300" height="220" as="geometry" />
+        </mxCell>
+
+        <!-- COLLECTION: trainer -->
+        <mxCell id="3" value="&lt;b&gt;trainer&lt;/b&gt;&lt;hr&gt;&lt;font color='#666666'&gt;_id: ObjectId (PK)&lt;/font&gt;&lt;br&gt;name: string&lt;br&gt;spezialisierung: string&lt;br&gt;erfahrung: int" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="420" width="300" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- COLLECTION: mannschaft -->
+        <mxCell id="4" value="&lt;b&gt;mannschaft&lt;/b&gt;&lt;hr&gt;&lt;font color='#666666'&gt;_id: ObjectId (PK)&lt;/font&gt;&lt;br&gt;name: string&lt;br&gt;kategorie: string&lt;br&gt;liga: string&lt;br&gt;trainerId: ObjectId (ref)&lt;br&gt;&lt;br&gt;&lt;b&gt;spiele: [&lt;/b&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;datum: date&lt;br&gt;&amp;nbsp;&amp;nbsp;ort: string&lt;br&gt;&amp;nbsp;&amp;nbsp;gegner: string&lt;br&gt;&amp;nbsp;&amp;nbsp;ergebnis: string&lt;br&gt;&lt;b&gt;]&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacing=4;" vertex="1" parent="1">
+          <mxGeometry x="500" y="140" width="300" height="260" as="geometry" />
+        </mxCell>
+
+        <!-- PFEIL: spieler -> mannschaft -->
+        <mxCell id="5" value="mannschaftId ref" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=block;endSize=8;strokeWidth=2;strokeColor=#6c8ebf;dashed=1;" edge="1" parent="1" source="2" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- PFEIL: mannschaft -> trainer -->
+        <mxCell id="6" value="trainerId ref" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;labelBackgroundColor=#FFFFFF;endArrow=block;endSize=8;strokeWidth=2;strokeColor=#9673a6;dashed=1;" edge="1" parent="1" source="4" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

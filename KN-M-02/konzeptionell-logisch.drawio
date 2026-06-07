@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram name="Konzeptionelles Modell" id="31cywwGaaeC2JaU9JHgt">
+    <mxGraphModel dx="1289" dy="1714" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;" value="&lt;b&gt;Spieler&lt;/b&gt;&lt;hr&gt;spielerId (PK)&lt;br&gt;name&lt;br&gt;alter&lt;br&gt;position&lt;br&gt;rueckennummer&lt;br&gt;gehalt&lt;br&gt;geburtsdatum" vertex="1">
+          <mxGeometry height="160" width="180" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;" value="&lt;b&gt;Mannschaft&lt;/b&gt;&lt;hr&gt;mannschaftId (PK)&lt;br&gt;name&lt;br&gt;kategorie&lt;br&gt;liga" vertex="1">
+          <mxGeometry height="115" width="180" x="460" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;" value="&lt;b&gt;Spiel&lt;/b&gt;&lt;hr&gt;spielId (PK)&lt;br&gt;datum&lt;br&gt;ort&lt;br&gt;gegner&lt;br&gt;ergebnis" vertex="1">
+          <mxGeometry height="120" width="180" x="460" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;" value="&lt;b&gt;Trainer&lt;/b&gt;&lt;hr&gt;trainerId (PK)&lt;br&gt;name&lt;br&gt;spezialisierung&lt;br&gt;erfahrung" vertex="1">
+          <mxGeometry height="110" width="180" x="80" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="6" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;fontStyle=1;endArrow=open;endSize=8;startArrow=open;startSize=8;strokeWidth=1.5;strokeColor=#333333;" target="3" value="N:M">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;fontStyle=1;endArrow=open;endSize=8;startArrow=open;startSize=8;strokeWidth=1.5;strokeColor=#333333;" target="4" value="1:N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8" edge="1" parent="1" source="5" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=11;fontStyle=1;endArrow=open;endSize=8;startArrow=open;startSize=8;strokeWidth=1.5;strokeColor=#333333;" target="3" value="1:N">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-8" parent="1" style="text;html=1;fontSize=10;whiteSpace=wrap;overflow=hidden;strokeColor=#cccccc;fillColor=#f9f9f9;" value="&lt;b&gt;Legende&lt;/b&gt;&lt;hr&gt;■ Collection&lt;br&gt;■ Embedded Document (grau)&lt;br&gt;- - -&gt; Referenz (ObjectId)" vertex="1">
+          <mxGeometry height="75" width="210" x="850" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;verticalAlign=middle;align=center;fontSize=11;fontStyle=1;spacingLeft=6;" value="&lt;b&gt;spieler&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="260" x="900" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;strokeTop=0;" value="_id: ObjectId (PK)&lt;br&gt;name: string&lt;br&gt;alter: int&lt;br&gt;position: string&lt;br&gt;rueckennummer: int&lt;br&gt;gehalt: float&lt;br&gt;geburtsdatum: date" vertex="1">
+          <mxGeometry height="115" width="260" x="900" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;strokeTop=0;" value="mannschaften: [ ]&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;&amp;nbsp;&amp;nbsp;mannschaftId: ObjectId&lt;br&gt;&amp;nbsp;&amp;nbsp;name: string&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="260" x="900" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;verticalAlign=middle;align=center;fontSize=11;fontStyle=1;spacingLeft=6;" value="&lt;b&gt;trainer&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="260" x="900" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;strokeTop=0;" value="_id: ObjectId (PK)&lt;br&gt;name: string&lt;br&gt;spezialisierung: string&lt;br&gt;erfahrung: int" vertex="1">
+          <mxGeometry height="70" width="260" x="900" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#333333;verticalAlign=middle;align=center;fontSize=11;fontStyle=1;spacingLeft=6;" value="&lt;b&gt;mannschaft&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="280" x="1380" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;strokeTop=0;" value="_id: ObjectId (PK)&lt;br&gt;name: string&lt;br&gt;kategorie: string&lt;br&gt;liga: string&lt;br&gt;trainerId: ObjectId" vertex="1">
+          <mxGeometry height="85" width="280" x="1380" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#333333;verticalAlign=top;align=left;overflow=hidden;fontSize=11;spacingLeft=6;strokeTop=0;" value="spiele: [ ]&lt;br&gt;&lt;font color=&#39;#666666&#39;&gt;&amp;nbsp;&amp;nbsp;datum: date&lt;br&gt;&amp;nbsp;&amp;nbsp;ort: string&lt;br&gt;&amp;nbsp;&amp;nbsp;gegner: string&lt;br&gt;&amp;nbsp;&amp;nbsp;ergebnis: string&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="280" x="1380" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-17" edge="1" parent="1" source="rcG-tl_UR5AldlxY1x5C-11" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;labelBackgroundColor=#ffffff;endArrow=block;endFill=0;endSize=8;strokeWidth=1.5;strokeColor=#333333;dashed=1;" target="rcG-tl_UR5AldlxY1x5C-14" value="mannschaftId">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-18" edge="1" parent="1" source="rcG-tl_UR5AldlxY1x5C-15" style="edgeStyle=orthogonalEdgeStyle;html=1;fontSize=10;labelBackgroundColor=#ffffff;endArrow=block;endFill=0;endSize=8;strokeWidth=1.5;strokeColor=#333333;dashed=1;" target="rcG-tl_UR5AldlxY1x5C-12" value="trainerId">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Konzeptionell" vertex="1">
+          <mxGeometry height="30" width="60" x="270" y="-10" as="geometry" />
+        </mxCell>
+        <mxCell id="rcG-tl_UR5AldlxY1x5C-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Logisch" vertex="1">
+          <mxGeometry height="70" width="150" x="1180" y="-50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,55 @@
+<mxfile host="app.diagrams.net" modified="2024-01-15T10:00:00.000Z" agent="Mozilla/5.0" version="21.6.5">
+  <diagram id="conceptual" name="Konzeptionelles Modell">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ENTITÄT: Spieler -->
+        <mxCell id="2" value="&lt;b&gt;Spieler&lt;/b&gt;&lt;hr&gt;- spielerId (PK)&lt;br&gt;- name&lt;br&gt;- alter&lt;br&gt;- position&lt;br&gt;- rueckennummer&lt;br&gt;- gehalt&lt;br&gt;- geburtsdatum" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=left;overflow=hidden;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="100" width="180" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- ENTITÄT: Mannschaft -->
+        <mxCell id="3" value="&lt;b&gt;Mannschaft&lt;/b&gt;&lt;hr&gt;- mannschaftId (PK)&lt;br&gt;- name&lt;br&gt;- kategorie&lt;br&gt;- liga" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=left;overflow=hidden;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="420" y="100" width="180" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ENTITÄT: Spiel -->
+        <mxCell id="4" value="&lt;b&gt;Spiel&lt;/b&gt;&lt;hr&gt;- spielId (PK)&lt;br&gt;- datum&lt;br&gt;- ort&lt;br&gt;- gegner&lt;br&gt;- ergebnis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top;align=left;overflow=hidden;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="420" y="380" width="180" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ENTITÄT: Trainer -->
+        <mxCell id="5" value="&lt;b&gt;Trainer&lt;/b&gt;&lt;hr&gt;- trainerId (PK)&lt;br&gt;- name&lt;br&gt;- spezialisierung&lt;br&gt;- erfahrung" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;align=left;overflow=hidden;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="50" y="380" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- BEZIEHUNG: Spieler - Mannschaft (N:N) -->
+        <mxCell id="6" value="N:M" style="edgeStyle=rounded;html=1;fontSize=14;fontStyle=5;verticalAlign=bottom;endArrow=open;endSize=8;startArrow=open;startSize=8;strokeWidth=2;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="165" as="sourcePoint" />
+            <mxPoint x="420" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- BEZIEHUNG: Mannschaft - Spiel (1:N) -->
+        <mxCell id="7" value="1:N" style="edgeStyle=rounded;html=1;fontSize=14;fontStyle=5;verticalAlign=bottom;endArrow=open;endSize=8;startArrow=open;startSize=8;strokeWidth=2;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="230" as="sourcePoint" />
+            <mxPoint x="510" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- BEZIEHUNG: Trainer - Mannschaft (1:N) -->
+        <mxCell id="8" value="1:N" style="edgeStyle=rounded;html=1;fontSize=14;fontStyle=5;verticalAlign=bottom;endArrow=open;endSize=8;startArrow=open;startSize=8;strokeWidth=2;" edge="1" parent="1" source="5" target="3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="430" as="sourcePoint" />
+            <mxPoint x="420" y="165" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
