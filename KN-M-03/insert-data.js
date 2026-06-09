@@ -1,6 +1,6 @@
 use fc_muster;
 
-// Variablen für die ObjectIds - nie hartcodierte Werte
+// Variablen für die ObjectIds 
 const trainerId1 = new ObjectId();
 const trainerId2 = new ObjectId();
 const mannschaftId1 = new ObjectId();

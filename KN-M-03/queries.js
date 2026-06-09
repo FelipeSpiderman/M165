@@ -5,15 +5,15 @@ use fc_muster;
 // Collection: spieler
 // ─────────────────────────────────────────────
 
-// Mindestens eine Abfrage pro Collection
+// eine Abfrage
 print("=== Alle Spieler ===");
 db.spieler.find().pretty();
 
-// DateTime-Filterung: Spieler geboren nach dem 01.01.2000
+// Spieler geboren nach dem 01.01.2000
 print("=== Spieler geboren nach 2000 ===");
 db.spieler.find({ geburtsdatum: { $gt: ISODate("2000-01-01T00:00:00Z") } }).pretty();
 
-// ODER-Verknüpfung (nicht auf _id!): Position Stürmer ODER Tor
+// ODER-Verknüpfung (nicht auf _id): Position Stürmer / Tor
 print("=== Spieler mit Position Stürmer oder Tor ===");
 db.spieler.find({
     $or: [
@@ -22,7 +22,7 @@ db.spieler.find({
     ]
 }).pretty();
 
-// Regex - Teilstring im Namen suchen
+// Teilstring im Namen suchen (Regex)
 print("=== Spieler mit 'er' im Namen ===");
 db.spieler.find({ name: { $regex: "er", $options: "i" } }).pretty();
 
@@ -38,7 +38,7 @@ db.spieler.find({}, { name: 1, position: 1, _id: 0 }).pretty();
 // Collection: mannschaft
 // ─────────────────────────────────────────────
 
-// Mindestens eine Abfrage pro Collection
+// eine Abfrage
 print("=== Alle Mannschaften ===");
 db.mannschaft.find().pretty();
 
@@ -55,6 +55,6 @@ db.mannschaft.find({
 // Collection: trainer
 // ─────────────────────────────────────────────
 
-// Mindestens eine Abfrage pro Collection
+// eine Abfrage
 print("=== Alle Trainer ===");
 db.trainer.find().pretty();
