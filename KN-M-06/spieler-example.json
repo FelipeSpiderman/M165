@@ -1,0 +1,15 @@
+{
+  "_id": { "$oid": "64a1b2c3d4e5f6a7b8c9d0e1" },
+  "name": "Hans Muster",
+  "alter": 25,
+  "position": "Stürmer",
+  "rueckennummer": 9,
+  "gehalt": 85000.50,
+  "geburtsdatum": { "$date": "1999-05-12T00:00:00.000Z" },
+  "mannschaften": [
+    {
+      "mannschaftId": { "$oid": "64a1b2c3d4e5f6a7b8c9d0e2" },
+      "name": "FC Muster Senioren"
+    }
+  ]
+}

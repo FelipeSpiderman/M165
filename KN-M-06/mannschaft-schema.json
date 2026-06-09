@@ -1,0 +1,42 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["name", "kategorie", "liga", "trainerId"],
+    "properties": {
+      "name": {
+        "bsonType": "string"
+      },
+      "kategorie": {
+        "bsonType": "string",
+        "enum": ["Senioren", "Junioren", "Frauen", "Mixed"]
+      },
+      "liga": {
+        "bsonType": "string"
+      },
+      "trainerId": {
+        "bsonType": "objectId"
+      },
+      "spiele": {
+        "bsonType": "array",
+        "items": {
+          "bsonType": "object",
+          "required": ["datum", "gegner", "ergebnis"],
+          "properties": {
+            "datum": {
+              "bsonType": "date"
+            },
+            "ort": {
+              "bsonType": "string"
+            },
+            "gegner": {
+              "bsonType": "string"
+            },
+            "ergebnis": {
+              "bsonType": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

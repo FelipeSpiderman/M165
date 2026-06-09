@@ -1,0 +1,21 @@
+{
+  "_id": { "$oid": "64a1b2c3d4e5f6a7b8c9d0e4" },
+  "name": "FC Muster Senioren",
+  "kategorie": "Senioren",
+  "liga": "2. Liga",
+  "trainerId": { "$oid": "64a1b2c3d4e5f6a7b8c9d0e3" },
+  "spiele": [
+    {
+      "datum": { "$date": "2024-09-15T00:00:00.000Z" },
+      "ort": "Sportplatz Muster",
+      "gegner": "FC Beispiel",
+      "ergebnis": "3:1"
+    },
+    {
+      "datum": { "$date": "2024-10-05T00:00:00.000Z" },
+      "ort": "Auswärts",
+      "gegner": "SC Test",
+      "ergebnis": "0:2"
+    }
+  ]
+}

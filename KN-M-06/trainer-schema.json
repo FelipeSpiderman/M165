@@ -1,0 +1,23 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["name", "spezialisierung", "erfahrung"],
+    "properties": {
+      "name": {
+        "bsonType": "string"
+      },
+      "spezialisierung": {
+        "bsonType": "string",
+        "enum": ["Taktik", "Kondition", "Torwart", "Athletik"]
+      },
+      "erfahrung": {
+        "bsonType": "int",
+        "minimum": 0,
+        "maximum": 50
+      },
+      "geburtsdatum": {
+        "bsonType": "date"
+      }
+    }
+  }
+}
