@@ -1,18 +1,12 @@
 use fc_muster;
 
-// ─────────────────────────────────────────────
-// Neue Rolle für den admin-User damit er Validierungen
-// hinzufügen kann (dbAdmin erlaubt collMod)
-// ─────────────────────────────────────────────
+// admin braucht dbAdmin-Rechte damit collMod funktioniert
 use admin;
 db.grantRolesToUser("admin", [{ role: "dbAdmin", db: "fc_muster" }]);
 
 use fc_muster;
 
-// ─────────────────────────────────────────────
-// Validation für spieler (via mongosh - die anderen zwei)
-// Eine davon via UI in Compass machen!
-// ─────────────────────────────────────────────
+// Validierung für spieler (die anderen zwei über Compass UI setzen!)
 db.runCommand({
     collMod: "spieler",
     validator: {
@@ -46,11 +40,9 @@ db.runCommand({
     validationLevel: "strict",
     validationAction: "error"
 });
-print("Validation für spieler gesetzt.");
+print("Validierung spieler gesetzt.");
 
-// ─────────────────────────────────────────────
-// Validation für trainer
-// ─────────────────────────────────────────────
+// Validierung für trainer
 db.runCommand({
     collMod: "trainer",
     validator: {
@@ -71,11 +63,9 @@ db.runCommand({
     validationLevel: "strict",
     validationAction: "error"
 });
-print("Validation für trainer gesetzt.");
+print("Validierung trainer gesetzt.");
 
-// ─────────────────────────────────────────────
-// Bestehende Validierung auslesen
-// ─────────────────────────────────────────────
+// Validierungen auslesen
 print("=== Validierung spieler ===");
 db.getCollectionInfos({ name: "spieler" })[0].options.validator;
 

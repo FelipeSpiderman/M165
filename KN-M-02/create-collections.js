@@ -1,9 +1,8 @@
-// Collections erstellen
+// drei Collections anlegen
 db.createCollection("spieler");
 db.createCollection("trainer");
 db.createCollection("mannschaft");
 
-// Bestätigung 
+// prüfen ob alles da ist
 print(db.getCollectionNames());
-// oder
-`show collections`
+// oder einfach: show collections

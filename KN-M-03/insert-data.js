@@ -1,6 +1,6 @@
 use fc_muster;
 
-// Variablen für die ObjectIds 
+// IDs vorher definieren damit die Referenzen stimmen
 const trainerId1 = new ObjectId();
 const trainerId2 = new ObjectId();
 const mannschaftId1 = new ObjectId();
@@ -11,7 +11,7 @@ const spielerId3 = new ObjectId();
 const spielerId4 = new ObjectId();
 const spielerId5 = new ObjectId();
 
-// insertOne() für trainer
+// einen Trainer einfügen
 db.trainer.insertOne({
     _id: trainerId1,
     name: "Peter Schmid",
@@ -20,7 +20,7 @@ db.trainer.insertOne({
     geburtsdatum: ISODate("1982-03-15T00:00:00Z")
 });
 
-// insertMany() für spieler
+// fünf Spieler auf einmal
 db.spieler.insertMany([
     {
         _id: spielerId1,
@@ -74,7 +74,7 @@ db.spieler.insertMany([
     }
 ]);
 
-// insertMany() für mannschaft
+// zwei Mannschaften mit eingebetteten Spielen
 db.mannschaft.insertMany([
     {
         _id: mannschaftId1,
@@ -114,7 +114,7 @@ db.mannschaft.insertMany([
     }
 ]);
 
-// insertOne() für zweiten trainer
+// zweiten Trainer nachträglich einfügen (wird von Junioren referenziert)
 db.trainer.insertOne({
     _id: trainerId2,
     name: "Stefan Meier",
@@ -123,6 +123,6 @@ db.trainer.insertOne({
     geburtsdatum: ISODate("1988-11-25T00:00:00Z")
 });
 
-print("Daten eingefügt. Spieler:", db.spieler.countDocuments());
+print("Spieler:", db.spieler.countDocuments());
 print("Trainer:", db.trainer.countDocuments());
 print("Mannschaften:", db.mannschaft.countDocuments());

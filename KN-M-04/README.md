@@ -67,6 +67,8 @@ Screenshots:
 
 ![image](images/1.png)
 ![image](images/2.png)
+![image](images/3.png)
+![image](images/4.png)
 
 ---
 
@@ -105,8 +107,7 @@ Im Resultat sind Felder aus beiden Collections sichtbar – der Mannschaftsname 
 
 Screenshots:
 
-![image](images/3.png)
-![image](images/4.png)
+![image](images/5.png)
 
 ---
 
@@ -161,5 +162,6 @@ Nach `$unwind`: ein Dokument pro Spiel.
 
 Screenshots:
 
-![image](images/5.png)
 ![image](images/6.png)
+![image](images/7.png)
+![image](images/8.png)

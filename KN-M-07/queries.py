@@ -2,8 +2,7 @@ from pymongo import MongoClient
 from datetime import datetime
 from bson import ObjectId
 
-# Verbindung zu AWS MongoDB
-# <AWS-IP> durch deine tatsächliche IP ersetzen
+# Verbindung zu AWS MongoDB – <AWS-IP> anpassen
 client = MongoClient(
     "mongodb://admin:MeinSicheresPasswort.2024@<AWS-IP>:27017/?authSource=admin"
 )
@@ -13,7 +12,7 @@ print("=== FIND: Alle Spieler ===")
 for s in db.spieler.find():
     print(s.get("name"), "-", s.get("position"))
 
-print("\n=== FIND mit Filter: Spieler alter > 20, Projektion ohne _id ===")
+print("\n=== FIND mit Filter: Spieler älter als 20, ohne _id ===")
 for r in db.spieler.find(
     {"alter": {"$gt": 20}},
     {"name": 1, "alter": 1, "gehalt": 1, "_id": 0}
@@ -48,7 +47,7 @@ pipeline = [
 for r in db.spieler.aggregate(pipeline):
     print(r)
 
-print("\n=== LOOKUP: Mannschaft + Trainer ===")
+print("\n=== LOOKUP: Mannschaft mit Trainer verknüpfen ===")
 pipeline = [
     {
         "$lookup": {
@@ -71,8 +70,8 @@ pipeline = [
 for r in db.mannschaft.aggregate(pipeline):
     print(r)
 
-print("\n=== DELETE: Python Spieler entfernen ===")
+print("\n=== DELETE: Python Spieler wieder entfernen ===")
 db.spieler.delete_one({"name": "Python Spieler"})
-print("Gelöscht")
+print("Gelöscht.")
 
 client.close()

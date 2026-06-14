@@ -1,8 +1,8 @@
 use fc_muster;
 
+// alle drei Collections löschen
 db.spieler.drop();
 db.trainer.drop();
 db.mannschaft.drop();
 
-print("Alle Collections gelöscht.");
-print("Verbleibende Collections:", db.getCollectionNames());
+print("Collections gelöscht:", db.getCollectionNames());

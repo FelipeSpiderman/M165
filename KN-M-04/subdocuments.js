@@ -1,13 +1,9 @@
 use fc_muster;
 
-// Die Mannschaft-Collection hat eingebettete Spiele als Array
-// Das ist das Unterdokument auf dem wir arbeiten
+// Mannschaft hat Spiele als eingebettetes Array
 
-// ─────────────────────────────────────────────
-// Abfrage 1: Nur einzelne Felder der Unterdokumente ausgeben
-// Nicht das ganze spiele-Array, nur Gegner und Ergebnis
-// ─────────────────────────────────────────────
-print("=== Abfrage 1: Einzelne Felder der Unterdokumente ===");
+// nur Gegner und Ergebnis ausgeben, nicht das ganze Dokument
+print("=== Einzelne Felder der Unterdokumente ===");
 db.mannschaft.find(
     {},
     {
@@ -18,22 +14,15 @@ db.mannschaft.find(
     }
 );
 
-// ─────────────────────────────────────────────
-// Abfrage 2: Nach Feldern von Unterdokumenten filtern
-// Alle Mannschaften die ein Spiel mit Ergebnis "3:1" haben
-// ─────────────────────────────────────────────
-print("=== Abfrage 2: Filter auf Unterdokument-Feld ===");
+// Mannschaften die ein Spiel 3:1 gewonnen haben
+print("=== Mannschaften mit Ergebnis 3:1 ===");
 db.mannschaft.find(
     { "spiele.ergebnis": "3:1" },
     { name: 1, "spiele.$": 1, _id: 0 }
 );
 
-// ─────────────────────────────────────────────
-// Abfrage 3: $unwind - Array "verflachen"
-// Aus einem Mannschaft-Dokument mit mehreren Spielen
-// werden mehrere Dokumente (eines pro Spiel)
-// ─────────────────────────────────────────────
-print("=== Abfrage 3: $unwind ===");
+// $unwind: aus einem Dokument mit mehreren Spielen werden mehrere Dokumente
+print("=== $unwind – ein Dokument pro Spiel ===");
 db.mannschaft.aggregate([
     { $unwind: "$spiele" },
     {

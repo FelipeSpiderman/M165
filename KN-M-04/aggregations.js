@@ -1,19 +1,15 @@
 use fc_muster;
 
-// ─────────────────────────────────────────────
-// Aggregation 1: Das AND aus KN-03 mit $match nachbilden
-// In KN-03 hatte ich: db.mannschaft.find({ $and: [{ liga: "2. Liga" }, { kategorie: "Senioren" }] })
-// Hier mache ich das gleiche aber mit zwei separaten $match stages
-// ─────────────────────────────────────────────
-print("=== Aggregation 1: Zwei $match stages (entspricht AND aus KN-03) ===");
+// Das AND aus KN-03 mit $match nachbilden
+// db.mannschaft.find({ $and: [{ liga: "2. Liga" }, { kategorie: "Senioren" }] })
+// hier mit zwei separaten $match-Stages
+print("=== Aggregation 1: zwei $match stages ===");
 db.mannschaft.aggregate([
     { $match: { liga: "2. Liga" } },
     { $match: { kategorie: "Senioren" } }
 ]);
 
-// ─────────────────────────────────────────────
-// Aggregation 2: $match + $project + $sort (mehrere Resultate)
-// ─────────────────────────────────────────────
+// Spieler ab 20 Jahren, sortiert nach Gehalt
 print("=== Aggregation 2: $match + $project + $sort ===");
 db.spieler.aggregate([
     { $match: { alter: { $gte: 20 } } },
@@ -29,10 +25,8 @@ db.spieler.aggregate([
     { $sort: { gehalt: -1 } }
 ]);
 
-// ─────────────────────────────────────────────
-// Aggregation 3: $sum zum Zählen - wie viele Spieler pro Position
-// ─────────────────────────────────────────────
-print("=== Aggregation 3: $sum - Spieler pro Position ===");
+// wie viele Spieler pro Position
+print("=== Aggregation 3: Spieler pro Position ===");
 db.spieler.aggregate([
     {
         $group: {
@@ -42,10 +36,8 @@ db.spieler.aggregate([
     }
 ]);
 
-// ─────────────────────────────────────────────
-// Aggregation 4: $group - Gesamtgehalt und Durchschnitt pro Position
-// ─────────────────────────────────────────────
-print("=== Aggregation 4: $group mit $sum auf Feld ===");
+// Gesamtgehalt und Durchschnitt pro Position
+print("=== Aggregation 4: Gehalt pro Position ===");
 db.spieler.aggregate([
     {
         $group: {

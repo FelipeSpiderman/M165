@@ -1,7 +1,7 @@
 use fc_muster;
 
-// $lookup: mannschaft mit trainer verknüpfen
-// Felder aus beiden Collections müssen im Resultat sein
+// Mannschaft mit zugehörigem Trainer verknüpfen via $lookup
+// beide Collections brauchen Felder im Output
 print("=== $lookup: Mannschaft + Trainer ===");
 db.mannschaft.aggregate([
     {
@@ -12,7 +12,7 @@ db.mannschaft.aggregate([
             as: "trainer_info"
         }
     },
-    // $unwind macht aus dem Array ein einzelnes Objekt
+    // $unwind weil trainer_info sonst ein Array ist
     { $unwind: "$trainer_info" },
     {
         $project: {
@@ -25,7 +25,7 @@ db.mannschaft.aggregate([
             "trainer_info.erfahrung": 1
         }
     },
-    // Nachfilterung: nur Mannschaften mit Trainer der mehr als 5 Jahre Erfahrung hat
+    // nur Trainer mit mehr als 5 Jahren Erfahrung
     { $match: { "trainer_info.erfahrung": { $gt: 5 } } },
     { $sort: { "trainer_info.erfahrung": -1 } }
 ]);

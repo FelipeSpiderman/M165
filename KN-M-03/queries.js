@@ -1,20 +1,16 @@
-// Aufräumen und Daten neu laden - insert-data.js zuerst ausführen!
+// insert-data.js muss zuerst laufen!
 use fc_muster;
 
-// ─────────────────────────────────────────────
-// Collection: spieler
-// ─────────────────────────────────────────────
-
-// eine Abfrage
+// alle Spieler
 print("=== Alle Spieler ===");
 db.spieler.find().pretty();
 
-// Spieler geboren nach dem 01.01.2000
+// Spieler die nach 2000 geboren sind
 print("=== Spieler geboren nach 2000 ===");
 db.spieler.find({ geburtsdatum: { $gt: ISODate("2000-01-01T00:00:00Z") } }).pretty();
 
-// ODER-Verknüpfung (nicht auf _id): Position Stürmer / Tor
-print("=== Spieler mit Position Stürmer oder Tor ===");
+// Position Stürmer oder Tor (ODER-Verknüpfung)
+print("=== Stürmer und Torhüter ===");
 db.spieler.find({
     $or: [
         { position: "Stürmer" },
@@ -22,28 +18,24 @@ db.spieler.find({
     ]
 }).pretty();
 
-// Teilstring im Namen suchen (Regex)
+// Namen mit "er" drin (Regex, case-insensitive)
 print("=== Spieler mit 'er' im Namen ===");
 db.spieler.find({ name: { $regex: "er", $options: "i" } }).pretty();
 
-// Projektion MIT _id: nur Name, Position und _id
-print("=== Projektion mit _id ===");
+// Projektion mit _id
+print("=== Name + Position (mit _id) ===");
 db.spieler.find({}, { name: 1, position: 1, _id: 1 }).pretty();
 
-// Projektion OHNE _id
-print("=== Projektion ohne _id ===");
+// gleiche Projektion aber ohne _id
+print("=== Name + Position (ohne _id) ===");
 db.spieler.find({}, { name: 1, position: 1, _id: 0 }).pretty();
 
-// ─────────────────────────────────────────────
-// Collection: mannschaft
-// ─────────────────────────────────────────────
-
-// eine Abfrage
+// alle Mannschaften
 print("=== Alle Mannschaften ===");
 db.mannschaft.find().pretty();
 
-// UND-Verknüpfung (andere Collection als ODER!): Liga 2. Liga UND Kategorie Senioren
-print("=== Senioren in der 2. Liga ===");
+// UND-Verknüpfung: nur Senioren in der 2. Liga
+print("=== 2. Liga Senioren ===");
 db.mannschaft.find({
     $and: [
         { liga: "2. Liga" },
@@ -51,10 +43,6 @@ db.mannschaft.find({
     ]
 }).pretty();
 
-// ─────────────────────────────────────────────
-// Collection: trainer
-// ─────────────────────────────────────────────
-
-// eine Abfrage
+// alle Trainer
 print("=== Alle Trainer ===");
 db.trainer.find().pretty();

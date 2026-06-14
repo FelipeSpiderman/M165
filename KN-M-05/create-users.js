@@ -1,4 +1,4 @@
-// Benutzer 1: Nur lesen, Authentifizierungsdatenbank = fc_muster
+// Benutzer 1: nur lesen, Auth in fc_muster
 use fc_muster;
 
 db.createUser({
@@ -9,10 +9,10 @@ db.createUser({
     ]
 });
 
-print("Benutzer 'leser' erstellt in fc_muster.");
-print("Verbindungstext: mongodb://leser:Lesen.2024@<IP>:27017/fc_muster?authSource=fc_muster");
+print("'leser' erstellt.");
+print("Verbindung: mongodb://leser:Lesen.2024@<IP>:27017/fc_muster?authSource=fc_muster");
 
-// Benutzer 2: Lesen und Schreiben, Authentifizierungsdatenbank = admin
+// Benutzer 2: lesen und schreiben, Auth in admin
 use admin;
 
 db.createUser({
@@ -23,5 +23,5 @@ db.createUser({
     ]
 });
 
-print("Benutzer 'schreiber' erstellt in admin.");
-print("Verbindungstext: mongodb://schreiber:Schreiben.2024@<IP>:27017/fc_muster?authSource=admin");
+print("'schreiber' erstellt.");
+print("Verbindung: mongodb://schreiber:Schreiben.2024@<IP>:27017/fc_muster?authSource=admin");
