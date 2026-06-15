@@ -15,9 +15,8 @@ Verbindungstext der fehlschlägt:
 mongodb://admin:MeinSicheresPasswort.2024@<IP>:27017/?authSource=fc_muster&readPreference=primary&ssl=false
 ```
 
-Ergebnis: `MongoServerError: Authentication failed`
-
 ![image](images/1.png)
+![image](images/2.png)
 
 ### Benutzer 1 – Nur lesen (authSource = fc_muster)
 
@@ -32,17 +31,10 @@ db.createUser({
 
 Verbindungstext: `mongodb://leser:Lesen.2024@<IP>:27017/fc_muster?authSource=fc_muster`
 
-Habs dann getestet:
-
-- Einloggen → funktioniert ✅ (Screenshot Verbindungstext sichtbar)
-- `db.spieler.find()` → funktioniert ✅
-- `db.spieler.insertOne({ name: "test" })` → `MongoServerError: not authorized` ✅
 
 Screenshots:
 
-![image](images/2.png)
 ![image](images/3.png)
-![image](images/4.png)
 
 ### Benutzer 2 – Lesen und Schreiben (authSource = admin)
 
@@ -57,17 +49,9 @@ db.createUser({
 
 Verbindungstext: `mongodb://schreiber:Schreiben.2024@<IP>:27017/fc_muster?authSource=admin`
 
-Test:
-
-- Einloggen → funktioniert ✅
-- `db.spieler.find()` → funktioniert ✅
-- `db.spieler.insertOne({ name: "test" })` → funktioniert ✅
-
 Screenshots:
 
-![image](images/5.png)
-![image](images/6.png)
-![image](images/7.png)
+![image](images/4.png)
 
 **Warum keine "Any"-Rollen?** Rollen wie `readAnyDatabase` geben Zugriff auf alle Datenbanken im System. Das wäre für unsere User viel zu viel – die sollen nur auf `fc_muster` zugreifen können, nicht auf `admin`, `local` oder irgendwelche anderen DBs.
 
@@ -81,8 +65,10 @@ Screenshots:
 
 AWS Console → EC2 → Volumes → Volume der MongoDB-Instanz auswählen → Actions → Create Snapshot
 
-Hab als Beschreibung "fc_muster Backup vor KN-05" eingetragen.
 
+![image](images/5.png)
+![image](images/6.png)
+![image](images/7.png)
 ![image](images/8.png)
 
 **Schritt 2 – Daten löschen:**
@@ -104,65 +90,6 @@ db.spieler.drop();
 Nach dem Neustart: `db.spieler.find()` gibt wieder alle Daten zurück.
 
 ![image](images/10.png)
-![image](images/11.png)
-
----
-
-### Variante 2: mongodump / mongorestore
-
-Tools direkt auf dem AWS-Server ausgeführt (via SSH).
-
-**Schritt 1 – Backup mit mongodump:**
-
-```bash
-mongodump \
-  --host localhost \
-  --port 27017 \
-  --username admin \
-  --password MeinSicheresPasswort.2024 \
-  --authenticationDatabase admin \
-  --db fc_muster \
-  --out /home/ubuntu/backup
-```
-
-Erstellt `/home/ubuntu/backup/fc_muster/` mit einer `.bson` und einer `.metadata.json` Datei pro Collection.
-
-![image](images/12.png)
-
-**Schritt 2 – Daten löschen:**
-
-```javascript
-use fc_muster;
-db.trainer.drop();
-```
-
-![image](images/13.png)
-
-**Schritt 3 – Wiederherstellen mit mongorestore:**
-
-```bash
-mongorestore \
-  --host localhost \
-  --port 27017 \
-  --username admin \
-  --password MeinSicheresPasswort.2024 \
-  --authenticationDatabase admin \
-  --db fc_muster \
-  /home/ubuntu/backup/fc_muster
-```
-
-Nach dem Restore: `db.trainer.find()` gibt wieder alle Trainer zurück.
-
-![image](images/14.png)
-
-**Unterschied EBS Snapshot vs. mongodump:**
-
-| | EBS Snapshot | mongodump |
-|--|--------------|-----------|
-| Was wird gesichert | Ganzes Volume (OS + MongoDB) | Nur die MongoDB-Daten |
-| Geschwindigkeit | Schnell, läuft im Hintergrund | Abhängig von Datenmenge |
-| Restore | Ganzes Volume austauschen | Nur die DB-Daten einspielen |
-| Granularität | Nur ganzes Volume | Einzelne DBs oder Collections |
 
 ---
 
