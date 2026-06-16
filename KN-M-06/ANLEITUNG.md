@@ -48,10 +48,10 @@ db.getCollectionInfos({ name: "spieler" })[0].options.validator
 ```javascript
 db.spieler.insertOne({
   name: "Test Spieler",
-  alter: 23,
+  alter: NumberInt(23),
   position: "Abwehr",
-  rueckennummer: 5,
-  gehalt: NumberDouble(55000.0),
+  rueckennummer: NumberInt(5),
+  gehalt: 55000.50,
   geburtsdatum: ISODate("2001-03-10T00:00:00Z")
 });
 ```
@@ -61,10 +61,10 @@ db.spieler.insertOne({
 ```javascript
 db.spieler.insertOne({
   name: "Falsch",
-  alter: 10,
+  alter: NumberInt(10),
   position: "Torwart",
-  rueckennummer: 0,
-  gehalt: NumberDouble(-500.0),
+  rueckennummer: NumberInt(0),
+  gehalt: -500.50,
   geburtsdatum: ISODate("2014-01-01T00:00:00Z")
 });
 ```

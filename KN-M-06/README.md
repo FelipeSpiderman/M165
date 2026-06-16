@@ -52,6 +52,12 @@ Bei `spieler` hab ich z.B. definiert:
 }
 ```
 
+![image](images/1.png)
+![image](images/2.png)
+![image](images/3.png)
+![image](images/4.png)
+![image](images/5.png)
+
 ---
 
 ## Teil B: Validierung hinterlegen und testen
@@ -71,7 +77,7 @@ db.grantRolesToUser("admin", [{ role: "dbAdmin", db: "fc_muster" }]);
 
 Die Validierung für `mannschaft` hab ich via Compass eingerichtet. In Compass: Collection anklicken → drei Punkte → **Validation** → Schema reinkopieren → **Update**.
 
-![image](images/1.png)
+![image](images/x.png)
 
 ### Validierung via mongosh – spieler und trainer
 
@@ -99,24 +105,24 @@ db.getCollectionInfos({ name: "spieler" })[0].options.validator
 
 Das gibt das hinterlegte Schema aus.
 
-![image](images/3.png)
+![image](images/x.png)
 
 ### Test: Gültiges Dokument ✅
 
 ```javascript
 db.spieler.insertOne({
   name: "Test Spieler",
-  alter: 23,
+  alter: NumberInt(23),
   position: "Abwehr",
-  rueckennummer: 5,
-  gehalt: NumberDouble(55000.0),
+  rueckennummer: NumberInt(5),
+  gehalt: 55000.50,
   geburtsdatum: ISODate("2001-03-10T00:00:00Z")
 });
 ```
 
 Eingefügt ohne Fehler.
 
-![image](images/4.png)
+![image](images/x.png)
 
 ### Test: Ungültiges Dokument ❌
 
@@ -138,4 +144,4 @@ Fehler: `Document failed validation`
 - `rueckennummer: 0` → Minimum ist 1
 - `gehalt: -500` → Minimum ist 0
 
-![image](images/5.png)
+![image](images/x.png)
