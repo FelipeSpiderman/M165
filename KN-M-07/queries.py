@@ -2,9 +2,8 @@ from pymongo import MongoClient
 from datetime import datetime
 from bson import ObjectId
 
-# Verbindung zu AWS MongoDB – <AWS-IP> anpassen
 client = MongoClient(
-    "mongodb://admin:MeinSicheresPasswort.2024@<AWS-IP>:27017/?authSource=admin"
+    "mongodb://admin:Password22901Gilbert@107.21.62.103:27017/?authSource=admin"
 )
 db = client["fc_muster"]
 
