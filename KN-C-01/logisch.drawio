@@ -1,0 +1,22 @@
+<mxfile host="Electron" modified="2025-01-15T10:00:00.000Z" agent="Mozilla/5.0" version="14.6.13" etag="dummy">
+  <diagram name="Logisch" id="logisch">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="kader" value="mannschaft_kader&#10;PK: (mannschaft_name, spieler_name)&#10;- position&#10;- rueckennummer&#10;- gehalt" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="40" width="200" height="90"/>
+        </mxCell>
+        <mxCell id="detail" value="spieler_detail&#10;PK: (spieler_name)&#10;- alter, position&#10;- rueckennummer, gehalt&#10;- geburtsdatum&#10;- mannschaften (set)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="40" width="200" height="90"/>
+        </mxCell>
+        <mxCell id="spiele" value="mannschaft_spiele&#10;PK: (mannschaft_name, spiel_datum)&#10;- gegner, ort&#10;- ergebnis" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="40" width="200" height="90"/>
+        </mxCell>
+        <mxCell id="trainer" value="trainer_mannschaft&#10;PK: (trainer_name, mannschaft_name)&#10;- spezialisierung&#10;- erfahrung" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="200" width="200" height="90"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

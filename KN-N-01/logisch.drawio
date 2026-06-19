@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Logisch" id="logisch">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="650" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="spieler" value=":Spieler&#10;name, alter, position,&#10;rueckennummer, gehalt,&#10;geburtsdatum" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="mannschaft" value=":Mannschaft&#10;name, kategorie, liga" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
+          <mxGeometry x="370" y="80" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="spiel" value=":Spiel&#10;datum, ort, gegner,&#10;ergebnis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
+          <mxGeometry x="640" y="80" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="trainer" value=":Trainer&#10;name, spezialisierung,&#10;erfahrung" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
+          <mxGeometry x="370" y="300" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="SPIELT_FUER&#10;{seit}" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="spieler" target="mannschaft">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="HAT_GESPIELT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="mannschaft" target="spiel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="TRAINIERT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="trainer" target="mannschaft">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
