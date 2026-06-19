@@ -77,7 +77,7 @@ db.grantRolesToUser("admin", [{ role: "dbAdmin", db: "fc_muster" }]);
 
 Die Validierung für `mannschaft` hab ich via Compass eingerichtet. In Compass: Collection anklicken → drei Punkte → **Validation** → Schema reinkopieren → **Update**.
 
-![image](images/x.png)
+![image](images/6.png)
 
 ### Validierung via mongosh – spieler und trainer
 
@@ -95,7 +95,7 @@ db.runCommand({
 - `validationLevel: "strict"` – alle Inserts und Updates werden validiert
 - `validationAction: "error"` – bei Verstoss wird ein Fehler geworfen (Alternative wäre `warn`, das nur loggt aber trotzdem einfügt)
 
-![image](images/2.png)
+![image](images/7.png)
 
 ### Bestehende Validierung auslesen
 
@@ -105,7 +105,9 @@ db.getCollectionInfos({ name: "spieler" })[0].options.validator
 
 Das gibt das hinterlegte Schema aus.
 
-![image](images/x.png)
+![image](images/8.png)
+![image](images/9.png)
+
 
 ### Test: Gültiges Dokument ✅
 
@@ -122,7 +124,7 @@ db.spieler.insertOne({
 
 Eingefügt ohne Fehler.
 
-![image](images/x.png)
+![image](images/10.png)
 
 ### Test: Ungültiges Dokument ❌
 
@@ -144,4 +146,4 @@ Fehler: `Document failed validation`
 - `rueckennummer: 0` → Minimum ist 1
 - `gehalt: -500` → Minimum ist 0
 
-![image](images/x.png)
+![image](images/11.png)
