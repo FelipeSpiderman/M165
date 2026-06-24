@@ -109,7 +109,7 @@ Das gibt das hinterlegte Schema aus.
 ![image](images/9.png)
 
 
-### Test: Gültiges Dokument ✅
+### Test: Gültiges Dokument 
 
 ```javascript
 db.spieler.insertOne({
@@ -126,7 +126,7 @@ Eingefügt ohne Fehler.
 
 ![image](images/10.png)
 
-### Test: Ungültiges Dokument ❌
+### Test: Ungültiges Dokument 
 
 ```javascript
 db.spieler.insertOne({
