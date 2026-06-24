@@ -64,7 +64,7 @@ ssh -i dein-key.pem ubuntu@<IP>
 
 **Backup:**
 ```bash
-mongodump --host localhost --port 27017 --username admin --password MeinSicheresPasswort.2024 --authenticationDatabase admin --db fc_muster --out /home/ubuntu/backup
+mongodump --host localhost --port 27017 --username admin --password Password22901Gilbert --authenticationDatabase admin --db fc_muster --out /home/ubuntu/backup
 ```
 **Screenshot**: `/home/ubuntu/backup/fc_muster/` Ordner mit .bson Files
 
@@ -78,7 +78,7 @@ db.trainer.drop();
 
 **Restore:**
 ```bash
-mongorestore --host localhost --port 27017 --username admin --password MeinSicheresPasswort.2024 --authenticationDatabase admin --db fc_muster /home/ubuntu/backup/fc_muster
+mongorestore --host localhost --port 27017 --username admin --password Password22901Gilbert --authenticationDatabase admin --db fc_muster /home/ubuntu/backup/fc_muster
 ```
 **Screenshot**: Trainer Collection wieder vorhanden ✅
 

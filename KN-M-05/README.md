@@ -67,7 +67,6 @@ AWS Console → EC2 → Volumes → Volume der MongoDB-Instanz auswählen → Ac
 
 
 ![image](images/5.png)
-![image](images/6.png)
 ![image](images/7.png)
 ![image](images/8.png)
 
@@ -78,7 +77,7 @@ In MONGOSH eine Collection gelöscht um zu testen:
 use fc_muster;
 db.spieler.drop();
 ```
-
+![image](images/6.png)
 ![image](images/9.png)
 
 **Schritt 3 – Volume aus Snapshot wiederherstellen:**
@@ -91,6 +90,27 @@ Nach dem Neustart: `db.spieler.find()` gibt wieder alle Daten zurück.
 
 ![image](images/10.png)
 
+### Variante 2: mongodump / mongorestore
+
+Mit instanz verbinden.
+
+Diesen Command ausführen: 
+```bash
+mongodump --host localhost --port 27017 --username admin --password Password22901Gilbert --authenticationDatabase admin --db fc_muster --out /home/ubuntu/backup
+```
+![image](images/11.png)
+
+in compass trainer droppen und zeigen: 
+![image](images/12.png)
+
+backup wiederherstellen:
+```bash
+mongorestore --host localhost --port 27017 --username admin --password Password22901Gilbert --authenticationDatabase admin --db fc_muster /home/ubuntu/backup/fc_muster
+```
+![image](images/13.png)
+
+in compass trainer collection wieder anzeigen lassen: 
+![image](images/14.png)
 ---
 
 ## Teil C: Skalierung
