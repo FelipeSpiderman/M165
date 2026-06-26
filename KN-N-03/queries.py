@@ -5,8 +5,8 @@
 from neo4j import GraphDatabase
 
 # Verbindung (Achtung: IP und Passwort anpassen!)
-URI = "neo4j://<IP>:7687"
-AUTH = ("neo4j", "<Password>")
+URI = "neo4j://32.197.140.131:7687"
+AUTH = ("neo4j", "jykhyr-taJnu9-safwaq")
 
 driver = GraphDatabase.driver(URI, auth=AUTH)
 
