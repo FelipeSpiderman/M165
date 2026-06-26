@@ -52,6 +52,8 @@ Gleich wie bei den MongoDB Aufgaben: **FC Muster** mit 4 Entitaeten:
 | **Spiel** | Ein Match gegen einen anderen Verein |
 | **Trainer** | Verantwortlicher fuer eine oder mehrere Mannschaften |
 
+![image](images/2.png)
+
 ### Logisches Modell fuer Neo4j
 
 Im Gegensatz zu MongoDB, wo man mit Dokumenten und Verschachtelungen arbeitet, habe ich bei Neo4j einen reinen Graph:
@@ -80,11 +82,9 @@ Die Kante `SPIELT_FUER` hat ein Attribut `seit` (Join-Jahr des Spielers in die M
 (:Mannschaft)-[:HAT_GESPIELT]->(:Spiel)
 ```
 
-### Grafische Darstellung
+![image](images/3.png)
 
-![image](images/2.png)
-
-*Originalfile: `logisch.drawio`*
+*Originalfile: `logisch.drawio` und `konzeptionell.drawio`*
 
 ### Erklaerung zu den Attributen auf den Kanten
 

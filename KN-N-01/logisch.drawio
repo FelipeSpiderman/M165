@@ -1,28 +1,28 @@
-<mxfile host="app.diagrams.net">
+<mxfile host="app.diagrams.net" version="24.7.17">
   <diagram name="Logisch" id="logisch">
-    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="650" math="0" shadow="0">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="950" pageHeight="700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="spieler" value=":Spieler&#10;name, alter, position,&#10;rueckennummer, gehalt,&#10;geburtsdatum" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="160" height="90" as="geometry" />
+        <mxCell id="spieler" value="&lt;b&gt;:Spieler&lt;/b&gt;&lt;br&gt;name&lt;br&gt;alter&lt;br&gt;position&lt;br&gt;rueckennummer&lt;br&gt;gehalt&lt;br&gt;geburtsdatum" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="170" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="mannschaft" value=":Mannschaft&#10;name, kategorie, liga" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
-          <mxGeometry x="370" y="80" width="160" height="90" as="geometry" />
+        <mxCell id="mannschaft" value="&lt;b&gt;:Mannschaft&lt;/b&gt;&lt;br&gt;name&lt;br&gt;kategorie&lt;br&gt;liga" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="390" y="100" width="170" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="spiel" value=":Spiel&#10;datum, ort, gegner,&#10;ergebnis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
-          <mxGeometry x="640" y="80" width="160" height="90" as="geometry" />
+        <mxCell id="spiel" value="&lt;b&gt;:Spiel&lt;/b&gt;&lt;br&gt;datum&lt;br&gt;ort&lt;br&gt;gegner&lt;br&gt;ergebnis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="730" y="100" width="170" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="trainer" value=":Trainer&#10;name, spezialisierung,&#10;erfahrung" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;align=center;" vertex="1" parent="1">
-          <mxGeometry x="370" y="300" width="160" height="90" as="geometry" />
+        <mxCell id="trainer" value="&lt;b&gt;:Trainer&lt;/b&gt;&lt;br&gt;name&lt;br&gt;spezialisierung&lt;br&gt;erfahrung" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="390" y="360" width="170" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="e1" value="SPIELT_FUER&#10;{seit}" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="spieler" target="mannschaft">
+        <mxCell id="e1" value="&lt;b&gt;:SPIELT_FUER&lt;/b&gt;&lt;br&gt;seit" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeColor=#000000;fontColor=#000000;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="spieler" target="mannschaft">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e2" value="HAT_GESPIELT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="mannschaft" target="spiel">
+        <mxCell id="e2" value="&lt;b&gt;:HAT_GESPIELT&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeColor=#000000;fontColor=#000000;fontSize=12;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="mannschaft" target="spiel">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e3" value="TRAINIERT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=none;startArrow=none;strokeColor=#000000;" edge="1" parent="1" source="trainer" target="mannschaft">
+        <mxCell id="e3" value="&lt;b&gt;:TRAINIERT&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;startArrow=none;strokeColor=#000000;fontColor=#000000;fontSize=12;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="trainer" target="mannschaft">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>

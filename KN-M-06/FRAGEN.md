@@ -10,5 +10,3 @@
 8. Was bedeutet **`required`** im Schema?
 9. Wie definiert man **Minimum/Maximum** für Zahlen in einem JSON Schema?
 10. Wie testet man, ob ein **ungültiges Dokument** abgewiesen wird?
-11. Wie hinterlegt man eine Validierung via **mongosh**? (`collMod`)
-12. Wie validiert man **Array-Felder** mit eigenem Schema?
