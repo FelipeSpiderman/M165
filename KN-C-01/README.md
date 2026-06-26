@@ -25,7 +25,7 @@ docker exec -it cassandra cqlsh
 
 Screenshot cqlsh:
 
-![image](images/1.png)
+![image](images/3.png)
 
 ### DataGrip (optional)
 
@@ -33,7 +33,7 @@ Ich habe zusaetzlich DataGrip installiert fuer die grafische Oberflache.
 
 Screenshot DataGrip:
 
-![image](images/2.png)
+![image](images/4.png)
 
 ---
 
@@ -42,6 +42,8 @@ Screenshot DataGrip:
 ### Grundlage
 
 Gleiches konzeptionelles Modell wie bei den vorherigen Aufgaben: **FC Muster** mit Spieler, Mannschaft, Trainer und Spiel.
+
+![image](images/1.png)
 
 Bei Cassandra geht es nicht darum, ein universelles Modell zu erstellen, sondern die Tabellen **pro Abfrage-Szenario (Screen)** zu optimieren. Daten werden redundant gespeichert - das ist explizit erwunscht!
 
@@ -58,7 +60,7 @@ Ich habe mich auf 4 Screens beschraenkt:
 
 ### Logisches Modell (visuell)
 
-![image](images/3.png)
+![image](images/2.png)
 
 *Originalfile: `logisch.drawio`*
 

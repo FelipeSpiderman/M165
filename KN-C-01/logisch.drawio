@@ -1,20 +1,20 @@
-<mxfile host="Electron" modified="2025-01-15T10:00:00.000Z" agent="Mozilla/5.0" version="14.6.13" etag="dummy">
+<mxfile host="app.diagrams.net" version="24.7.17">
   <diagram name="Logisch" id="logisch">
-    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="950" pageHeight="700" math="0" shadow="0">
       <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-        <mxCell id="kader" value="mannschaft_kader&#10;PK: (mannschaft_name, spieler_name)&#10;- position&#10;- rueckennummer&#10;- gehalt" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="30" y="40" width="200" height="90"/>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kader" value="&lt;b&gt;mannschaft_kader&lt;/b&gt;&lt;br&gt;PK: mannschaft_name&lt;br&gt;CK: spieler_name&lt;br&gt;&lt;br&gt;position&lt;br&gt;rueckennummer&lt;br&gt;gehalt" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="190" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="detail" value="spieler_detail&#10;PK: (spieler_name)&#10;- alter, position&#10;- rueckennummer, gehalt&#10;- geburtsdatum&#10;- mannschaften (set)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="290" y="40" width="200" height="90"/>
+        <mxCell id="detail" value="&lt;b&gt;spieler_detail&lt;/b&gt;&lt;br&gt;PK: spieler_name&lt;br&gt;&lt;br&gt;alter&lt;br&gt;position&lt;br&gt;rueckennummer&lt;br&gt;gehalt&lt;br&gt;geburtsdatum&lt;br&gt;mannschaften (set)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="280" y="60" width="190" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="spiele" value="mannschaft_spiele&#10;PK: (mannschaft_name, spiel_datum)&#10;- gegner, ort&#10;- ergebnis" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="550" y="40" width="200" height="90"/>
+        <mxCell id="spiele" value="&lt;b&gt;mannschaft_spiele&lt;/b&gt;&lt;br&gt;PK: mannschaft_name&lt;br&gt;CK: spiel_datum&lt;br&gt;&lt;br&gt;gegner&lt;br&gt;ort&lt;br&gt;ergebnis" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="190" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="trainer" value="trainer_mannschaft&#10;PK: (trainer_name, mannschaft_name)&#10;- spezialisierung&#10;- erfahrung" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="290" y="200" width="200" height="90"/>
+        <mxCell id="trainer" value="&lt;b&gt;trainer_mannschaft&lt;/b&gt;&lt;br&gt;PK: trainer_name&lt;br&gt;CK: mannschaft_name&lt;br&gt;&lt;br&gt;spezialisierung&lt;br&gt;erfahrung" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;fontColor=#000000;fontSize=12;align=center;verticalAlign=middle;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="40" y="380" width="190" height="160" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
