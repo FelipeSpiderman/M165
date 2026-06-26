@@ -28,7 +28,7 @@ Damit wird eine Ubuntu 24.04 Instanz mit Neo4j aufgesetzt. Der Installationsproz
 Nach der Installation habe ich mich via cypher-shell verbunden:
 
 ```bash
-cypher-shell -a neo4j://<IP>:7687 -u neo4j -p
+cypher-shell -a neo4j://32.197.140.131:7687 -u neo4j -p
 ```
 
 Hat funktioniert, Passwort wurde geaendert.
