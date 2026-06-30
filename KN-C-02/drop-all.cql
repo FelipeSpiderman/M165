@@ -3,7 +3,7 @@
 
 USE fc_muster;
 
-TRUNCATE mannschaft_kader;
-TRUNCATE spieler_detail;
-TRUNCATE mannschaft_spiele;
-TRUNCATE trainer_mannschaft;
+TRUNCATE fc_muster.mannschaft_kader;
+TRUNCATE fc_muster.spieler_detail;
+TRUNCATE fc_muster.mannschaft_spiele;
+TRUNCATE fc_muster.trainer_mannschaft;

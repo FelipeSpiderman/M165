@@ -25,7 +25,7 @@ docker exec -it cassandra cqlsh
 
 Screenshot cqlsh:
 
-![image](images/3.png)
+![image](images/4.png)
 
 ### DataGrip (optional)
 
@@ -33,7 +33,7 @@ Ich habe zusaetzlich DataGrip installiert fuer die grafische Oberflache.
 
 Screenshot DataGrip:
 
-![image](images/4.png)
+![image](images/5.png)
 
 ---
 
@@ -93,57 +93,4 @@ Ich habe mich auf 4 Screens beschraenkt:
 
 ## Teil C: Physisches Modell fuer Cassandra (50%)
 
-### Skript
-
-Script: `create-keyspace.cql`
-
-```cassandra
-CREATE KEYSPACE fc_muster
-WITH replication = {
-  'class': 'SimpleStrategy',
-  'replication_factor': 1
-};
-
-USE fc_muster;
-
-CREATE TABLE mannschaft_kader (
-    mannschaft_name text,
-    spieler_name text,
-    position text,
-    rueckennummer int,
-    gehalt double,
-    PRIMARY KEY (mannschaft_name, spieler_name)
-);
-
-CREATE TABLE spieler_detail (
-    spieler_name text,
-    alter int,
-    position text,
-    rueckennummer int,
-    gehalt double,
-    geburtsdatum date,
-    mannschaften set<text>,
-    PRIMARY KEY (spieler_name)
-);
-
-CREATE TABLE mannschaft_spiele (
-    mannschaft_name text,
-    spiel_datum date,
-    gegner text,
-    ort text,
-    ergebnis text,
-    PRIMARY KEY (mannschaft_name, spiel_datum)
-);
-
-CREATE TABLE trainer_mannschaft (
-    trainer_name text,
-    mannschaft_name text,
-    spezialisierung text,
-    erfahrung int,
-    PRIMARY KEY (trainer_name, mannschaft_name)
-);
-```
-
-Screenshot Ausfuehrung:
-
-![image](images/4.png)
+![image](images/6.png)

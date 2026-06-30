@@ -4,10 +4,10 @@
 USE fc_muster;
 
 // Ein bestimmtes Spiel der Senioren loeschen
-DELETE FROM mannschaft_spiele
+DELETE FROM fc_muster.mannschaft_spiele
 WHERE mannschaft_name = 'FC Muster Senioren'
   AND spiel_datum = '2024-09-22';
 
 // Eine Spalte aus dem Spielerprofil loeschen
-DELETE gehalt FROM spieler_detail
+DELETE gehalt FROM fc_muster.spieler_detail
 WHERE spieler_name = 'Hans Muster';
